@@ -84,7 +84,7 @@ The overall network architecture is shown above. It consists of three main parts
 
 ## Code:
 
-For Generating Training and Test data. <br>
+### For Generating Training and Test data. <br>
 > To generate ground truth DOA parameters
 ```
 $ cd dataset_folder
@@ -100,4 +100,38 @@ $ python main_datagen.py
 $ cd dataset_folder
 $ python generate_testdata.py
 ```
+
+### For training the proposed network. <br>
+> Change the dataset_path, label_path, and sigdata_path according to your directory.
+```
+$ cd Gridless
+$ sbatch batch.sh
+```
+> To get test results,
+```
+$ python testdata_loss_acc.py
+```
+
+### For training the Gridbased network. <br>
+```
+$ cd Gridbased
+```
+> Change the dataset_path, label_path in main.py file. <br>
+> For checkpointpath=f'./saved_models/exp18/gaussian_rmse/l2' in main.py, make sure reg_parameter=None, weight_decay=0. <br>
+> For checkpointpath=f'./saved_models/exp18/gaussian_rmse/l2_l12' in main.py, make sure reg_parameter=5e-4, weight_decay=0. <br>
+```
+$ sbatch batch.sh
+```
+> To get test results,
+```
+$ python loss_acc.py
+```
+
+### For plots.
+```
+$ cd Gridless
+$ python plots_results.py
+```
+
+
 
