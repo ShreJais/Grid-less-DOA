@@ -11,7 +11,7 @@
 </div>
 
 <div align=center>
-   <img src="./Images/53_phi_0.0.png">
+   <img src="./Images/53_phi_0.0.png" >
    <figcaption>
 	  Sequential DOA trajectory estimation: TL-CBF spectrum of original signal (a), and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
     </figcaption>
@@ -23,6 +23,7 @@
 
 ## Signal Model:
 <blockquote>
+ 
 Consider a uniform linear array (ULA) with $N$ sensors. Assuming linear source motion, the DOA $\theta^l_k$ for $k{\text{-th}}$ source at $l{\text{-th}}$ snapshot is,
 
 $$\theta^l_k = \phi_k + \frac{l-1}{L-1}\alpha_k, \quad l=1,2, \cdots, L.$$
@@ -38,9 +39,25 @@ where
 * $d$ is sensor separation and $\lambda$ is observation wavelength;
 * $\tilde{\mathbf{X}} = [\tilde{\mathbf{X}}_1 \cdots \tilde{\mathbf{X}}_K]^T \in \mathbb{C}^{KL \times L}$ with $\tilde{\mathbf{X}}_k = \text{diag}(\mathbf{x}_k) \in \mathbb{C}^{L \times L}$, where $\mathbf{x}_k = [s_k^1 \cdots s_k^L]$ are $L$ amplitudes of the $k{\text{-th}}$ source;
 * $\mathbf{W}=[\mathbf{w}_1 \cdots \mathbf{w}_L] \in \mathbb{C}^{N \times L}$ represents the additive noise.
+
+<div align="center">
+    <table>
+	<td><div align=center>
+		<img src= "./Images/linear_movingsource2.png"> <figcaption> Linearly moving source.</figcaption></div></td> 
+	<td><div align=center>
+		<img src="./Images/track2.png"> <figcaption> DOA as a function of snapshots.</figcaption></div></td> 
+    </table>
+</div>
 </blockquote>
 
-<p align="center">
-   <img src="https://github.com/ShreJais/Grid-less-DOA//Images/Network.pdf" width="400" title="Deep Complex Network.">
-</p>
+## Architecture:
+<div align=center>
+	<blockquote>
+		<img src="./Images/network.png" title="Deep Complex Network.">
+		<figcaption>
+			Deep complex network -- feature extractor (shaded pink), amplitude estimator (shaded blue), and trajectory estimator (shaded peach). Every block has complex weights except for the LSTM  and dense layers in the trajectory estimator. The kernel sizes used by the convolutional operations are specified. The Inception block uses kernels of size: $(1, 1)$, $(1, 3)$, $(3, 1)$, $(3, 3)$, and $(5, 1)$ while the ResNet uses $(3, 1)$. The architecture has $548,152$ parameters.
+		</figcaption>
+	</blockquote>
+</div>
+
 
