@@ -21,6 +21,7 @@ model:
   act_fn3: 'tanh'
 
   c_in: 1
+  # make sure c_outsum[1:] is equal to the sum of number of channels of different kernel size.
   c_outsum: [16, 32, 48, 64]
   c_out: [{'1x1': 6, '1x3': 6, '3x1': 6, '3x3': 8, '5x1': 6},
          {'1x1': 8, '1x3': 8, '3x1': 8, '3x3': 16, '5x1': 8},
@@ -46,10 +47,10 @@ model:
   use_bn: True
   is_1dkernel: True
   is_2dkernel: True
-  n_layers: 2
+  n_layers: 2 # fixed.
   n_inception: 2
-  resnet_stride1: [1, 1]
-  resnet_stride2: [2, 1]
+  resnet_stride1: [1, 1] # fixed
+  resnet_stride2: [2, 1]  # fixed
   resnet_subsample: True
   is_concat: True
   is_skip: True
