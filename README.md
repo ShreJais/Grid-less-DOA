@@ -51,13 +51,22 @@ where
 </blockquote>
 
 ## Architecture:
+<blockquote>
 <div align=center>
-	<blockquote>
 		<img src="./Images/network.png" title="Deep Complex Network.">
 		<figcaption>
-			Deep complex network -- feature extractor (shaded pink), amplitude estimator (shaded blue), and trajectory estimator (shaded peach). Every block has complex weights except for the LSTM  and dense layers in the trajectory estimator. The kernel sizes used by the convolutional operations are specified. The Inception block uses kernels of size: $(1, 1)$, $(1, 3)$, $(3, 1)$, $(3, 3)$, and $(5, 1)$ while the ResNet uses $(3, 1)$. The architecture has $548,152$ parameters.
+			Deep complex network -- feature extractor (shaded pink), amplitude estimator (shaded blue), and trajectory estimator (shaded peach). Every block has complex weights except for the LSTM  and dense layers in the trajectory estimator. The architecture has 548,152 parameters.
 		</figcaption>
-	</blockquote>
 </div>
+<br>
+<p>
+The overall network architecture is shown above. It consists of three main parts: feature extractor (shaded pink), amplitude estimator (shaded blue), and trajectory estimator (shaded peach). The feature extractor processes the input $\mathbf{Y}$ \eqref{eq:sensor_array} and outputs complex features that serve as input to the two estimators. The amplitude estimator is designed to estimate the source amplitudes $\mathbf{X}$, while the trajectory estimator is designed to estimate the trajectory parameters $(\phi,\alpha)$, both for the same source (strongest).
+</p>
+
+<p>
+
+</p>
+
+</blockquote>
 
 
