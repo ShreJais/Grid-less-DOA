@@ -30,7 +30,7 @@ where
 * $d$ is sensor separation and $\lambda$ is observation wavelength;
 * $\tilde{\mathbf{X}} = [\tilde{\mathbf{X}}_1 \cdots \tilde{\mathbf{X}}_K]^T \in \mathbb{C}^{KL \times L}$ with $\tilde{\mathbf{X}}_k = \text{diag}(\mathbf{x}_k) \in \mathbb{C}^{L \times L}$, where $\mathbf{x}_k = [s_k^1 \cdots s_k^L]$ are $L$ amplitudes of the $k{\text{-th}}$ source;
 * $\mathbf{W}=[\mathbf{w}_1 \cdots \mathbf{w}_L] \in \mathbb{C}^{N \times L}$ represents the additive noise.
-<\blockquote>
+</blockquote>
 
 <p align="center">
    <img src="https://github.com/ShreJais/Grid-less-DOA//Images/Network.pdf" width="400" title="Deep Complex Network.">
