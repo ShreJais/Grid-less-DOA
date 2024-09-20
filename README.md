@@ -81,3 +81,23 @@ The overall network architecture is shown above. It consists of three main parts
     </ul>
 </p>
 </blockquote>
+
+## Code:
+
+For Generating Training and Test data. <br>
+> To generate ground truth DOA parameters
+```
+$ cd dataset_folder
+$ python utils.py
+```
+> To generate Recevied signal, Ground truth signal amplitude and Tl-CBF spectrum.
+```
+$ cd dataset_folder
+$ python main_datagen.py
+```
+> To generate test data.
+```
+$ cd dataset_folder
+$ python generate_testdata.py
+```
+
