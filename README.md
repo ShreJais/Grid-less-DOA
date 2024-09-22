@@ -15,9 +15,9 @@
 
 <div align=center>
    <img src="./Images/53_phi_0.0.png" style="width:80%; height:auto;">
-   <figcaption>
-	  <br>Sequential DOA trajectory estimation: TL-CBF spectrum of original signal (a), and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
-    </figcaption>
+   	<figcaption>
+	  	<br>Sequential DOA trajectory estimation: TL-CBF spectrum of original signal (a), and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
+    	</figcaption>
 </div>
 
 
@@ -132,6 +132,37 @@ $ python loss_acc.py
 $ cd Gridless
 $ python plots_results.py
 ```
+
+## Results:
+
+
+> Accuracy (in %) of various algorithms on different test datasets (&eta; = 2.4).
+
+| DatasetName  | TL-CBF | U-Net-l<sub>2</sub>| U-Net-l<sub>21</sub> | Proposed |
+|--------------|--------|-------------|----------------|----------|
+| TestData     | 64.79  | 85.02       | 85.11          | **88.93**|
+| TestData-1   | 16.175 | 78.48       | 87.6           | **90.87**|
+| TestData-2   | 69.97  | 70.76       | 68.76          | **95.22**|
+| TestData-3   | 48.49  | **76.47**   | 76.2           | 63.70    |
+| TestData-4   | 57.3   | 69.63       | **72.7**       | 65.97    |
+
+
+<blockquote>
+<div align=center>
+	<img src= "./Images/subplots_acc_snr_phi0_2_3.png" style="width:80%; height:auto;"> 
+		<figcaption>
+			<br> Accuracy (in %) for the two-source scenarios (a, b) and the three-source scenarios (c, d) as SNR and &Phi;<sub>0</sub> vary.
+		</figcaption>
+</div>
+<br>
+<div align=center>
+	<img src= "./Images/subplots_sig_rel_error_2_3.png" style="width:80%; height:auto;"> 
+		<figcaption>
+			<br> Amplitude relative error (in %) for two-source (a, b) and three-source (c, d) scenarios as SNR and &Phi;<sub>0</sub> vary.
+		</figcaption>
+</div>
+</blockquote>
+
 ## Observations:
 <blockquote>
 <ul style="display: inline; padding-left: 0; list-style-type: none;">
