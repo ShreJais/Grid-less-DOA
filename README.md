@@ -136,15 +136,70 @@ $ python plots_results.py
 <blockquote>
 <ul style="display: inline; padding-left: 0; list-style-type: none;">
         <li style="display: inline; margin-right: 10px;"> We experimented with different skip connection configurations, including no skip connection, skip connection only to the trajectory estimator, and separate skip connections to both estimators. However, these configurations did not perform well. </li>
-	<li style="display: inline; margin-right: 10px;"> In some three-source scenarios, the network initially estimated one of the two closely positioned sources rather than the third (stronger) source. In the subsequent iteration, the network estimated the globally strongest source. <br>
-	<div align=center>
-   <img src="./Images/53_phi_0.0.png" style="width:60%; height:auto;" >
-   <figcaption>
-	  <br>Sequential DOA trajectory estimation: TL-CBF spectrum of original signal (a), and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
-    </figcaption>
+	<li style="display: inline; margin-right: 10px;"> In some three-source scenarios, the network initially estimated one of the two closely positioned sources rather than the third (stronger) source. In the subsequent iteration, the network estimated the globally strongest source. <br><br>
+<div align="center">
+    <table style="width:100%;">
+	<td style="width:50%; text-align:center;"><div align=center>
+		<img src= "./Images/30_snrdb_6.76.png"> <figcaption>TL-CBF spectrum of original signal (a) at 6 dB SNR, and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(-60.5, 2.5) (strongest), S2-(5.5, 1.2) and S3-(-7.5, 3.5) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated. </figcaption></div></td> 
+	<td style="width:50%; text-align:center;"><div align=center>
+		<img src="./Images/51_phi_0.0.png"> <figcaption> TL-CBF spectrum of original signal (a) at 5 dB SNR, and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(60.5, 2.5) (strongest), S2-(5.5, 1.2) and S3-(0, 3.8) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated. </figcaption></div></td> 
+    </table>
 </div>
 	</li>
-	
-	<li style="display: inline; margin-right: 10px;">  </li>
+	<li style="display: inline; margin-right: 10px;"> Errors in source amplitude and trajectory parameter estimation can lead to error in source trajectory parameter estimation when processing the residuals. For example, in some scenarios, partial removal of a source in the first iteration caused the network to estimate the same source again, instead of estimating the other sources. <br><br>
+	<div align=center>
+   		<img src="./Images/11_snrdb_2.9.png" style="width:60%; height:auto;">
+   			<figcaption>
+	  			<br>TL-CBF spectrum of original signal (a) at 3 dB SNR, and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(-60.5, 2.5) (strongest), S2-(5.5, 1.2) and S3-(-7.5, 3.5) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
+    			</figcaption>
+	</div>
+	<div align=center>
+   		<img src="./Images/68_phi_18.0.png">
+   			<figcaption> 
+				TL-CBF spectrum of original signal (a) at 10 dB SNR, and of residual signals (b, c) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(20.4, 3.5) (strongest) and S2-(18, -2.5) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated. 
+			</figcaption>
+	</div>
+	</li>
+	<li style="display: inline; margin-right: 10px;"> As sources are removed partially or fully sequentially, the average power per sensor per snapshot also decreases. Additionally, as SNR increases, the average power per sensor per snapshot (P) decreases, indicating that at higher SNR levels, the method can more effectively remove the sources sequentially. <br><br>		<div align="center">
+    	<table style="width:100%;">
+	     	<tr>
+				<td style="width:50%; text-align:center;">
+					<div align=center>
+						<img src= "./Images/1_snrdb_0.0.png"> 
+							<figcaption>
+								TL-CBF spectrum of original signal (a) at 0 dB SNR, and of residual signals (b, c) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(60.4, 3.5) (strongest) and S2-(50.5, -2.5) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
+							</figcaption>
+					</div>
+				</td> 
+				<td style="width:50%; text-align:center;">
+					<div align=center>
+						<img src="./Images/99_snrdb_19.0.png"> 
+							<figcaption> 
+								TL-CBF spectrum of original signal (a) at 19 dB SNR, and of residual signals (b, c) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(60.4, 3.5) (strongest) and S2-(50.5, -2.5) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated. 
+							</figcaption>
+					</div>
+				</td>
+	    	</tr>
+	   		<tr>
+				<td style="width:50%; text-align:center;">
+					<div align=center>
+						<img src= "./Images/13_snrdb_2.83.png"> 
+							<figcaption>
+								TL-CBF spectrum of original signal (a) at 3 dB SNR, and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(-60.5, 2.5) (strongest), S2-(5.5, 1.2) and S3-(-7.5, 3.5) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated. 
+							</figcaption>
+					</div>
+				</td> 
+				<td style="width:50%; text-align:center;">
+					<div align=center>
+						<img src="./Images/98_snrdb_19.98.png"> 
+							<figcaption> 
+								TL-CBF spectrum of original signal (a) at 20 dB SNR, and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. Source trajectories are S1-(60.5, 2.5) (strongest), S2-(5.5, 1.2) and S3-(0, 3.8) (weakest). The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated. 
+							</figcaption>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>	
+	</li>
 </blockquote>
 
