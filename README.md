@@ -14,9 +14,9 @@
 > We propose a data-driven method for direction-of-arrival (DOA) trajectory estimation. We use a deep complex architecture which leverages complex-valued representations to capture both magnitude and phase information in the received sensor array data. The network is designed to output the DOA trajectory parameters and amplitudes of the strongest source. Deviating from conventional methods, which attempt to estimate parameters for all sources simultaneously -- leading to assignment ambiguity and the problem of uncertain output dimensions, we adopt a sequential approach. The estimated source signal contribution is subtracted from the input to obtain a residual signal. This residual signal is then fed back into the network to identify the next strongest source and so on, making the proposed network reusable. We evaluate our network on simulated data of varying complexity. Results demonstrate the feasibility of such a reusable network and potential improvements can be explored in future.
 
 <div align=center>
-   <img src="./Images/53_phi_0.0.png" >
+   <img src="./Images/53_phi_0.0.png" style="width:80%; height:auto;">
    <figcaption>
-	  Sequential DOA trajectory estimation: TL-CBF spectrum of original signal (a), and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
+	  <br>Sequential DOA trajectory estimation: TL-CBF spectrum of original signal (a), and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
     </figcaption>
 </div>
 
@@ -132,6 +132,19 @@ $ python loss_acc.py
 $ cd Gridless
 $ python plots_results.py
 ```
-
-
+## Observations:
+<blockquote>
+<ul style="display: inline; padding-left: 0; list-style-type: none;">
+        <li style="display: inline; margin-right: 10px;"> We experimented with different skip connection configurations, including no skip connection, skip connection only to the trajectory estimator, and separate skip connections to both estimators. However, these configurations did not perform well. </li>
+	<li style="display: inline; margin-right: 10px;"> In some three-source scenarios, the network initially estimated one of the two closely positioned sources rather than the third (stronger) source. In the subsequent iteration, the network estimated the globally strongest source. <br>
+	<div align=center>
+   <img src="./Images/53_phi_0.0.png" style="width:60%; height:auto;" >
+   <figcaption>
+	  <br>Sequential DOA trajectory estimation: TL-CBF spectrum of original signal (a), and of residual signals (b)-(d) obtained after removal of every additional source. True sources are indicated by red cross. The estimated source trajectories are indicated by red circle in panels (a)-(c), which are partially or fully removed in subsequent spectra (b)-(d). The average power per sensor per snapshot (P) is indicated.
+    </figcaption>
+</div>
+	</li>
+	
+	<li style="display: inline; margin-right: 10px;">  </li>
+</blockquote>
 
